@@ -1,22 +1,24 @@
 --SQL Retail Sales Analysis --
 CREATE DATABASE SQL_Project;
 -- CREATE TABLE --
-CREATE TABLE retail_sales( transactions_id	INT PRIMARY KEY,
-							sale_date	DATE,
-							sale_time	TIME,
-							customer_id	 INT,
-							gender	VARCHAR(15),
-							age	INT,
-							category VARCHAR(15),	
-							quantiy	 INT,
-							price_per_unit	FLOAT,
-							cogs	FLOAT,
-							total_sale FLOAT
-);
+CREATE TABLE retail_sales( transactions_id INT PRIMARY KEY,
+			   sale_date DATE,
+			   sale_time TIME,
+			   customer_id INT,
+			   gender VARCHAR(115),
+			   age INT,
+			   category VARCHAR(15),	
+			   quantiy INT,
+			   price_per_unit FLOAT,
+			   cogs FLOAT,
+			   total_sale FLOAT
+                         );
 SELECT * FROM retail_sales
 LIMIT 10;
+
 SELECT count(*) 
 FROM retail_sales;
+
 --- DATA CLEANING--
 SELECT * FROM retail_sales
 WHERE transactions_id IS NULL;
@@ -71,7 +73,7 @@ AND quantiy >1
 ORDER BY quantiy ASC;
 
 --Q.3 Write a SQL query to calculate the total sales (total_sale) for each category?--
-SELECT category, SUM(total_sale) as net_sale
+SELECT category, SUM(total_sale) AS net_sale
 FROM retail_sales
 GROUP BY 1;
 
@@ -130,23 +132,3 @@ FROM retail_sales
 SELECT shift, COUNT(*) AS total_orders 
 FROM hourly_sales
 GROUP BY shift;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
